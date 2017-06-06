@@ -2,4 +2,5 @@
 ############### still a WIP ###############
 rm -f -r src/* 
 rm -f greedy
+rm -f -r greedydir/
 rm -f lddmm
