@@ -39,13 +39,16 @@ greedy_affine = function(fixed,
   imgs = paste("-i", fixed, moving)
   niters = paste0("-n ", niters)
   # output = paste0("-o ", output)
+  dimension = paste("-d", dimension)
+  xomat = omat
+  omat = paste("-o", omat)
 
   opts = c("-a",
            imgs,
            niters,
            opts,
-           paste("-d", dimension),
-           paste("-o", omat),
+           dimension,
+           omat,
            ia,
            dof,
            metric)
@@ -60,6 +63,6 @@ greedy_affine = function(fixed,
     warning(paste0("Result does not indicate success ",
                    "- function may not work as expected!"))
   }
-  L = list(omat = omat, result = res)
+  L = list(omat = xomat, result = res)
   return(L)
 }

@@ -2,4 +2,5 @@
 
 export(greedy_affine)
 export(greedy_cmd)
+export(greedy_estimate)
 importFrom(neurobase,checkimg)
