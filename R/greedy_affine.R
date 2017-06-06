@@ -19,12 +19,12 @@
 greedy_affine = function(fixed,
                          moving,
                          # output = tempfile(fileext = ".nii.gz"),
-                         niters = "100x50x10",
+                         niters = "200x200x200",
                          dimension = 3,
                          omat = tempfile(fileext = ".mat"),
                          # initial_affine = "identity",
                          dof = 12,
-                         metric = "NCC 2x2x2",
+                         metric = "NMI",
                          opts = "",
                          verbose = TRUE
 ) {

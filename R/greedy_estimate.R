@@ -22,9 +22,9 @@ greedy_estimate = function(
   initial_transform = NULL,
   warpfile = tempfile(fileext = ".nii.gz"),
   invwarpfile = tempfile(fileext = ".nii.gz"),
-  niters = "100x50x10",
+  niters = "200x200x200",
   dimension = 3,
-  metric = "NCC 2x2x2",
+  metric = "NMI",
   opts = "",
   verbose = TRUE
 ) {
