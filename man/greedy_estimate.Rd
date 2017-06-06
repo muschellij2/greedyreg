@@ -6,7 +6,7 @@
 \usage{
 greedy_estimate(fixed, moving, initial_transform = NULL,
   warpfile = tempfile(fileext = ".nii.gz"), invwarpfile = tempfile(fileext =
-  ".nii.gz"), niters = "100x50x10", dimension = 3, metric = "NCC 2x2x2",
+  ".nii.gz"), niters = "200x200x200", dimension = 3, metric = "NMI",
   opts = "", verbose = TRUE)
 }
 \arguments{

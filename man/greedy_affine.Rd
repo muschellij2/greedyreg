@@ -4,8 +4,8 @@
 \alias{greedy_affine}
 \title{Affine Registration from Greedy}
 \usage{
-greedy_affine(fixed, moving, niters = "100x50x10", dimension = 3,
-  omat = tempfile(fileext = ".mat"), dof = 12, metric = "NCC 2x2x2",
+greedy_affine(fixed, moving, niters = "200x200x200", dimension = 3,
+  omat = tempfile(fileext = ".mat"), dof = 12, metric = "NMI",
   opts = "", verbose = TRUE)
 }
 \arguments{
