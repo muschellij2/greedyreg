@@ -4,5 +4,5 @@
 #' @return Indicator
 #' @export
 find_greedy = function() {
-  system.file(package = "greedy")
+  system.file(package = "greedyreg")
 }

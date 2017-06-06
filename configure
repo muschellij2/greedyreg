@@ -9,6 +9,13 @@ CMAKE_BUILD_TYPE=Release
 gh=https://github.com/pyushkevich/greedy
 git clone $gh greedydir
 
+echo "execs = c('greedy', 'lddmm')" > install.libs.R
+echo "if ( any(file.exists(execs)) ) { " >> install.libs.R
+echo "dest <- file.path(R_PACKAGE_DIR,  paste0('bin', R_ARCH))" >> install.libs.R
+echo "dir.create(dest, recursive = TRUE, showWarnings = FALSE)" >> install.libs.R
+echo "file.copy(execs, dest, overwrite = TRUE)" >> install.libs.R
+echo "}" >> install.libs.R
+
 cd ./src
 echo "CXX_STD = CXX11" > Makevars
 
@@ -18,7 +25,7 @@ echo "all: \$(SHLIB)" >> Makevars
 
 echo "\$(SHLIB): libs" >> Makevars
 
-echo "libs: ; cd \${PWD} && \$(MAKE) -j 2 &&  cd \${PWD} && \$(MAKE) all install && cp greedy lddmm ../" >> Makevars
+echo "libs: ; cd \${PWD} && \$(MAKE) -j 2 &&  cd \${PWD} && \$(MAKE) all install" >> Makevars
 
 
 # mkdir -p build

@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libgreedyapi.a  CMakeFiles/greedyapi.dir/src/lddmm_data.cxx.o CMakeFiles/greedyapi.dir/src/GreedyAPI.cxx.o CMakeFiles/greedyapi.dir/src/GreedyParameters.cxx.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libgreedyapi.a

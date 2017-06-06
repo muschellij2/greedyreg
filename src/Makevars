@@ -1,5 +1,0 @@
-CXX_STD = CXX11
-.PHONY: all libs
-all: $(SHLIB)
-$(SHLIB): libs
-libs: ; cd ${PWD} && $(MAKE) -j 2 &&  cd ${PWD} && $(MAKE) all install && cp greedy lddmm ../

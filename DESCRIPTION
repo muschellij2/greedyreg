@@ -1,4 +1,4 @@
-Package: greedy
+Package: greedyreg
 Type: Package
 Title: Wraps Greedy Registration
 Version: 0.1.0
