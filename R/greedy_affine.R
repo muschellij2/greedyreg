@@ -10,6 +10,7 @@
 #' @param metric Metric to use for registraation
 #' @param opts additional options
 #' @param niters number of iterations per level of multi-res
+#' @param verbose print diagnostic messages
 #'
 #' @return List of output
 #' @export
@@ -24,7 +25,8 @@ greedy_affine = function(fixed,
                          intial_affine = "identity",
                          dof = 12,
                          metric = "NCC 2x2x2",
-                         opts = ""
+                         opts = "",
+                         verbose = TRUE
 ) {
   if (intial_affine == "identity") {
     ia = "-ia-identity"

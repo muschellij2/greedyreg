@@ -1,5 +1,5 @@
-#' @title Affine Registration from Greedy
-#' @description Affine Registration from Greedy library
+#' @title Deformation Registration from Greedy
+#' @description Deformation Registration from Greedy library
 #'
 #' @param fixed Fixed image
 #' @param moving Moving Image to register to fixed image
@@ -10,6 +10,7 @@
 #' @param metric Metric to use for registraation
 #' @param opts additional options
 #' @param niters number of iterations per level of multi-res
+#' @param verbose print diagnostic messages
 #'
 #' @return List of output warps and inverses
 #' @export
@@ -23,7 +24,8 @@ greedy_estimate = function(fixed,
                   niters = "100x50x10",
                   dimension = 3,
                   metric = "NCC 2x2x2",
-                  opts = ""
+                  opts = "",
+                  verbose = TRUE
 ) {
   fixed = neurobase::checkimg(fixed)
   moving = neurobase::checkimg(moving)
