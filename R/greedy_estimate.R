@@ -65,6 +65,9 @@ greedy_estimate = function(fixed,
 
   cmd = greedy_cmd()
   cmd = paste(cmd, opts)
+  if (verbose) {
+    message(cmd)
+  }
   res = system(cmd)
   if (res != 0) {
     warning(paste0("Result does not indicate success ",

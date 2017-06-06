@@ -11,7 +11,7 @@ git clone $gh greedydir
 
 mkdir -p src
 cd ./src
-echo "execs = c('greedy', 'lddmm')" > install.libs.R
+echo "execs = c('greedy', 'lddmm', 'libgreedyapi.a', 'test_accum')" > install.libs.R
 echo "if ( any(file.exists(execs)) ) { " >> install.libs.R
 echo "dest <- file.path(R_PACKAGE_DIR,  paste0('bin', R_ARCH))" >> install.libs.R
 echo "dir.create(dest, recursive = TRUE, showWarnings = FALSE)" >> install.libs.R
