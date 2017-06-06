@@ -1,0 +1,6 @@
+/Users/johnmuschelli/Dropbox/Packages/greedy/src/CMakeFiles/greedyapi.dir
+/Users/johnmuschelli/Dropbox/Packages/greedy/src/CMakeFiles/rebuild_cache.dir
+/Users/johnmuschelli/Dropbox/Packages/greedy/src/CMakeFiles/test_accum.dir
+/Users/johnmuschelli/Dropbox/Packages/greedy/src/CMakeFiles/edit_cache.dir
+/Users/johnmuschelli/Dropbox/Packages/greedy/src/CMakeFiles/lddmm.dir
+/Users/johnmuschelli/Dropbox/Packages/greedy/src/CMakeFiles/greedy.dir

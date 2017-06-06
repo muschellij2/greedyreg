@@ -1,0 +1,13 @@
+Package: greedy
+Type: Package
+Title: Wraps Greedy Registration
+Version: 0.1.0
+Author: John Muschelli
+Maintainer: John Muschelli <muschellij2@gmail.com>
+Description: Wraps and installs the greedy registration from Paul
+Imports: 
+    ITKR,
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1

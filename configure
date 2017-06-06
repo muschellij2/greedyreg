@@ -1,0 +1,29 @@
+#!/bin/bash
+CXX_STD=CXX11
+ITKDIR=`${R_HOME}/bin/Rscript -e 'a<-ITKR:::itkDir(); cat(a)'`
+
+# get a version of cmake
+CMAKE_BUILD_TYPE=Release
+
+# get / set up ANTs code
+gh=https://github.com/pyushkevich/greedy
+git clone $gh greedydir
+
+cd ./src
+echo "CXX_STD = CXX11" > Makevars
+
+echo ".PHONY: all libs" >> Makevars
+
+echo "all: \$(SHLIB)" >> Makevars
+
+echo "\$(SHLIB): libs" >> Makevars
+
+echo "libs: ; cd \${PWD} && \$(MAKE) -j 2 &&  cd \${PWD} && \$(MAKE) all install && cp greedy lddmm ../" >> Makevars
+
+
+# mkdir -p build
+# cd build
+cmake -DITK_DIR:PATH=${ITKDIR} \
+    -DCMAKE_INSTALL_PREFIX:PATH=${R_PACKAGE_DIR}/libs/  \
+    -DCMAKE_BUILD_TYPE:STRING="${CMAKE_BUILD_TYPE}" ../greedydir
+cd ../
