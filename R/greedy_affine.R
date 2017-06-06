@@ -5,7 +5,6 @@
 #' @param moving Moving Image to register to fixed image
 #' @param dimension  Number of image dimension
 #' @param omat Output affine matrix
-#' @param intial_affine Initalization affine -either filename or identity
 #' @param dof degrees of freedom
 #' @param metric Metric to use for registraation
 #' @param opts additional options
@@ -16,23 +15,24 @@
 #' @export
 #'
 #' @importFrom neurobase checkimg
+# @param initial_affine Initalization affine -either filename or identity
 greedy_affine = function(fixed,
                          moving,
                          # output = tempfile(fileext = ".nii.gz"),
                          niters = "100x50x10",
                          dimension = 3,
                          omat = tempfile(fileext = ".mat"),
-                         intial_affine = "identity",
+                         # initial_affine = "identity",
                          dof = 12,
                          metric = "NCC 2x2x2",
                          opts = "",
                          verbose = TRUE
 ) {
-  if (intial_affine == "identity") {
-    ia = "-ia-identity"
-  } else {
-    ia = paste0("-ia ", intial_affine)
-  }
+  # if (initial_affine == "identity") {
+  #   ia = "-ia-identity"
+  # } else {
+  #   ia = paste0("-ia ", initial_affine)
+  # }
   dof = paste0("-dof ", dof)
   metric = paste0("-m ", metric)
   fixed = neurobase::checkimg(fixed)
@@ -51,7 +51,7 @@ greedy_affine = function(fixed,
            opts,
            dimension,
            omat,
-           ia,
+           # ia,
            dof,
            metric)
 

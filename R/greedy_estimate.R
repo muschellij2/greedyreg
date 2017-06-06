@@ -16,16 +16,17 @@
 #' @export
 #'
 #' @importFrom neurobase checkimg
-greedy_estimate = function(fixed,
-                  moving,
-                  initial_transform = NULL,
-                  warpfile = tempfile(fileext = ".nii.gz"),
-                  invwarpfile = tempfile(fileext = ".nii.gz"),
-                  niters = "100x50x10",
-                  dimension = 3,
-                  metric = "NCC 2x2x2",
-                  opts = "",
-                  verbose = TRUE
+greedy_estimate = function(
+  fixed,
+  moving,
+  initial_transform = NULL,
+  warpfile = tempfile(fileext = ".nii.gz"),
+  invwarpfile = tempfile(fileext = ".nii.gz"),
+  niters = "100x50x10",
+  dimension = 3,
+  metric = "NCC 2x2x2",
+  opts = "",
+  verbose = TRUE
 ) {
   fixed = neurobase::checkimg(fixed)
   moving = neurobase::checkimg(moving)

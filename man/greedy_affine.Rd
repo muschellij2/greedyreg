@@ -5,8 +5,8 @@
 \title{Affine Registration from Greedy}
 \usage{
 greedy_affine(fixed, moving, niters = "100x50x10", dimension = 3,
-  omat = tempfile(fileext = ".mat"), intial_affine = "identity", dof = 12,
-  metric = "NCC 2x2x2", opts = "", verbose = TRUE)
+  omat = tempfile(fileext = ".mat"), dof = 12, metric = "NCC 2x2x2",
+  opts = "", verbose = TRUE)
 }
 \arguments{
 \item{fixed}{Fixed image}
@@ -18,8 +18,6 @@ greedy_affine(fixed, moving, niters = "100x50x10", dimension = 3,
 \item{dimension}{Number of image dimension}
 
 \item{omat}{Output affine matrix}
-
-\item{intial_affine}{Initalization affine -either filename or identity}
 
 \item{dof}{degrees of freedom}
 
