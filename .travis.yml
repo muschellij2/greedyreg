@@ -3,3 +3,10 @@
 language: R
 sudo: false
 cache: packages
+warnings_are_errors: true
+
+before_install:
+  - wget -O full_antsr_travis.sh http://bit.ly/full_antsr_travis
+  - chmod +x full_antsr_travis.sh
+  - . ./full_antsr_travis.sh
+  - rm full_antsr_travis.sh
