@@ -36,8 +36,10 @@ greedy_apply = function(
 
   transforms = neurobase::checkimg(transforms)
   transforms = paste(transforms, collapse = " ")
+  xtransforms = transforms
   transforms = paste("-r", transforms)
 
+  xinterpolator = interpolator
   interpolator = paste("-ri", interpolator)
 
   if (is.null(moving_outfile)) {
@@ -62,8 +64,10 @@ greedy_apply = function(
     jacobian = paste("-rj", jacobian)
   }
 
+  xdimension = dimension
   dimension = paste("-d", dimension)
 
+  xopts = opts
   # can have more than one
   opts = c(fixed,
            transforms,
@@ -87,8 +91,13 @@ greedy_apply = function(
     warning(paste0("Result does not indicate success ",
                    "- function may not work as expected!"))
   }
-  L = list( outfiles = moving_outfile,
-           result = res)
+  L = list(
+    outfiles = moving_outfile,
+    result = res,
+    interpolator = xinterpolator,
+    transforms = xtransforms,
+    dimension = xdimension,
+    additional_options = xopts)
   L$warpfile = xwarpfile
   L$jacobian = xjacobian
   return(L)

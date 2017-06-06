@@ -42,16 +42,18 @@ greedy_estimate = function(
 
   xwarpfile = warpfile
   xinvwarpfile = invwarpfile
-  warpfile = paste0("-o ", warpfile)
-  invwarpfile = paste0("-oinv", invwarpfile)
+  warpfile = paste("-o", warpfile)
+  invwarpfile = paste("-oinv", invwarpfile)
 
-  niters = paste0("-n ", niters)
+  xniters = niters
+  niters = paste("-n", niters)
+  xdimension = dimension
   dimension = paste("-d", dimension)
-  metric = paste0("-m ", metric)
+  xmetric = metric
+  metric = paste("-m", metric)
 
   # can have more than one
-
-
+  xopts = opts
   opts = c(imgs,
            initial_transform,
            warpfile,
@@ -76,7 +78,12 @@ greedy_estimate = function(
   }
   L = list(warpfile = xwarpfile,
            invwarpfile = xinvwarpfile,
-           result = res)
+           result = res,
+           metric = xmetric,
+           niters = xniters,
+           dimension = xdimension,
+           additional_options = xopts
+           )
   L$initial_transform = xinitial_transform
   return(L)
 }

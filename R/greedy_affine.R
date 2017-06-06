@@ -34,17 +34,21 @@ greedy_affine = function(fixed,
   #   ia = paste0("-ia ", initial_affine)
   # }
   dof = paste0("-dof ", dof)
+  xmetric = metric
   metric = paste0("-m ", metric)
   fixed = neurobase::checkimg(fixed)
   moving = neurobase::checkimg(moving)
 
   imgs = paste("-i", fixed, moving)
+  xniters = niters
   niters = paste0("-n ", niters)
   # output = paste0("-o ", output)
+  xdimension = dimension
   dimension = paste("-d", dimension)
   xomat = omat
   omat = paste("-o", omat)
 
+  xopts = opts
   opts = c("-a",
            imgs,
            niters,
@@ -68,6 +72,11 @@ greedy_affine = function(fixed,
     warning(paste0("Result does not indicate success ",
                    "- function may not work as expected!"))
   }
-  L = list(omat = xomat, result = res)
+  L = list(omat = xomat,
+           result = res,
+           metric = xmetric,
+           niters = xniters,
+           dimension = xdimension,
+           additional_options = xopts)
   return(L)
 }
