@@ -72,7 +72,10 @@ greedy_affine = function(fixed,
     warning(paste0("Result does not indicate success ",
                    "- function may not work as expected!"))
   }
-  L = list(omat = xomat,
+  L = list(
+    fixed = fixed,
+    moving = moving,
+    omat = xomat,
            result = res,
            metric = xmetric,
            niters = xniters,

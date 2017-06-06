@@ -45,8 +45,9 @@ greedy_apply = function(
   if (is.null(moving_outfile)) {
     moving_outfile = sapply(
       seq(length(moving)),
-      tempfile,
-      fileext = ".nii.gz")
+      function(x){
+        tempfile(fileext = ".nii.gz")
+      })
     names(moving_outfile) = moving
   }
   stopifnot(length(moving) == length(moving_outfile))

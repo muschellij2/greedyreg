@@ -32,13 +32,13 @@ greedy_estimate = function(
   moving = neurobase::checkimg(moving)
   imgs = paste("-i", fixed, moving)
 
+  xinitial_transform = initial_transform
   if (!is.null(initial_transform)) {
     initial_transform = paste(initial_transform, collapse = " ")
     initial_transform = paste("-it", initial_transform)
   } else {
     warning("No affine initalization was set, use with caution!")
   }
-  xinitial_transform = initial_transform
 
   xwarpfile = warpfile
   xinvwarpfile = invwarpfile
@@ -76,14 +76,17 @@ greedy_estimate = function(
     warning(paste0("Result does not indicate success ",
                    "- function may not work as expected!"))
   }
-  L = list(warpfile = xwarpfile,
-           invwarpfile = xinvwarpfile,
-           result = res,
-           metric = xmetric,
-           niters = xniters,
-           dimension = xdimension,
-           additional_options = xopts
-           )
+  L = list(
+    fixed = fixed,
+    moving = moving,
+    warpfile = xwarpfile,
+    invwarpfile = xinvwarpfile,
+    result = res,
+    metric = xmetric,
+    niters = xniters,
+    dimension = xdimension,
+    additional_options = xopts
+  )
   L$initial_transform = xinitial_transform
   return(L)
 }
