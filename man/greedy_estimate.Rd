@@ -2,12 +2,12 @@
 % Please edit documentation in R/greedy_estimate.R
 \name{greedy_estimate}
 \alias{greedy_estimate}
-\title{Affine Registration from Greedy}
+\title{Deformation Registration from Greedy}
 \usage{
 greedy_estimate(fixed, moving, initial_transform = NULL,
   warpfile = tempfile(fileext = ".nii.gz"), invwarpfile = tempfile(fileext =
   ".nii.gz"), niters = "100x50x10", dimension = 3, metric = "NCC 2x2x2",
-  opts = "")
+  opts = "", verbose = TRUE)
 }
 \arguments{
 \item{fixed}{Fixed image}
@@ -27,10 +27,12 @@ greedy_estimate(fixed, moving, initial_transform = NULL,
 \item{metric}{Metric to use for registraation}
 
 \item{opts}{additional options}
+
+\item{verbose}{print diagnostic messages}
 }
 \value{
 List of output warps and inverses
 }
 \description{
-Affine Registration from Greedy library
+Deformation Registration from Greedy library
 }

@@ -6,7 +6,7 @@
 \usage{
 greedy_affine(fixed, moving, niters = "100x50x10", dimension = 3,
   omat = tempfile(fileext = ".mat"), intial_affine = "identity", dof = 12,
-  metric = "NCC 2x2x2", opts = "")
+  metric = "NCC 2x2x2", opts = "", verbose = TRUE)
 }
 \arguments{
 \item{fixed}{Fixed image}
@@ -26,6 +26,8 @@ greedy_affine(fixed, moving, niters = "100x50x10", dimension = 3,
 \item{metric}{Metric to use for registraation}
 
 \item{opts}{additional options}
+
+\item{verbose}{print diagnostic messages}
 }
 \value{
 List of output
