@@ -8,6 +8,9 @@ CMAKE_BUILD_TYPE=Release
 # get / set up ANTs code
 gh=https://github.com/pyushkevich/greedy
 git clone $gh greedydir
+# needed for warning
+rm -rf greedydir/.git
+
 
 mkdir -p src
 cd ./src
