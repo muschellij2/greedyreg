@@ -11,6 +11,7 @@ Imports:
 License: GPL-2
 Remotes:
     stnava/ITKR
+NeedsCompilation: yes    
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
