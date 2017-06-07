@@ -1,7 +1,7 @@
 Package: greedyreg
 Type: Package
 Title: Wraps Greedy Registration
-Version: 0.2
+Version: 0.3
 Author: John Muschelli
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Description: Wraps and installs the greedy registration from Paul Yushkevich at
