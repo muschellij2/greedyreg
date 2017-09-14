@@ -29,7 +29,7 @@ echo "all: \$(SHLIB)" >> Makevars
 
 echo "\$(SHLIB): libs" >> Makevars
 
-echo "libs: ; cd \${PWD} && \$(MAKE) -j 2 &&  cd \${PWD} && \$(MAKE) all install" >> Makevars
+echo "libs: ; \$(MAKE) -j 2 &&  cd \${PWD} && \$(MAKE) all install" >> Makevars
 
 
 # mkdir -p build
