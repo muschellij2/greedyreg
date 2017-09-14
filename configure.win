@@ -22,6 +22,7 @@ echo "}" >> install.libs.R
 
 echo "CXX_STD = CXX11" > Makevars.win
 
+echo "PKG_CPPFLAGS = ${PKG_CPPFLAGS} -Wa,-mbig-obj" >> Makevars.win
 echo ".PHONY: all libs" >> Makevars.win
 
 echo "all: \$(SHLIB)" >> Makevars.win
