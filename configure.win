@@ -31,7 +31,7 @@ echo "\$(SHLIB): libs" >> Makevars.win
 MAKER=mingw32-make
 # MAKER=make
 # echo "libs: ; cd \${PWD} && ${MAKER} -j 2 &&  cd \${PWD} && ${MAKER} all install" >> Makevars.win
-echo "libs: ; cd ${PWD} && ${MAKER} -j 2" >> Makevars.win
+echo "libs: ; cd src/ && ${MAKER} -j 2" >> Makevars.win
 
 cmake \
     -G "MinGW Makefiles" \
