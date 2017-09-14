@@ -20,6 +20,9 @@ cache:
 
 # Adapt as necessary starting from here
 build_script:
+  - travis-tool.sh install_deps
+
+test_script:
   # need to move to higher dir because CMake path req
   - mkdir C:\run
   - cp -avr * C:\run
@@ -56,11 +59,9 @@ build_script:
   - set PATH=%PATH%;C:\Program Files\7-Zip
   # remove Remotes
   - Rscript -e "x= read.dcf('DESCRIPTION', all = TRUE); x$Remotes = NULL; write.dcf(x, file = 'DESCRIPTION')"  
-  - travis-tool.sh install_deps
-
-test_script:
   - travis-tool.sh run_tests
   - ls
+  # - cp ../*.zip ./
   - cp -r C:/run/* %APPVEYOR_BUILD_FOLDER%
   - cd %APPVEYOR_BUILD_FOLDER%
   - ls
