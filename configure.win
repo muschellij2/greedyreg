@@ -28,7 +28,8 @@ echo "all: \$(SHLIB)" >> Makevars.win
 
 echo "\$(SHLIB): libs" >> Makevars.win
 
-MAKER=mingw32-make
+# MAKER=mingw32-make
+MAKER=make
 echo "libs: ; cd \${PWD} && ${MAKER} -j 2 &&  cd \${PWD} && ${MAKER} all install" >> Makevars.win
 
 cmake \
