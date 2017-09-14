@@ -22,7 +22,7 @@ greedy_apply = function(
   moving,
   transforms = list(),
   moving_outfile = NULL,
-  interpolator = "NN",
+  interpolator = "LINEAR",
   warpfile = tempfile(fileext = ".nii.gz"),
   jacobian = tempfile(fileext = ".nii.gz"),
   dimension = 3,

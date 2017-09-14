@@ -5,7 +5,7 @@
 \title{Apply Transformations from Greedy}
 \usage{
 greedy_apply(fixed, moving, transforms = list(), moving_outfile = NULL,
-  interpolator = "NN", warpfile = tempfile(fileext = ".nii.gz"),
+  interpolator = "LINEAR", warpfile = tempfile(fileext = ".nii.gz"),
   jacobian = tempfile(fileext = ".nii.gz"), dimension = 3, opts = "",
   verbose = TRUE)
 }

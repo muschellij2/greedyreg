@@ -16,17 +16,18 @@
 #'
 #' @importFrom neurobase checkimg
 # @param initial_affine Initalization affine -either filename or identity
-greedy_affine = function(fixed,
-                         moving,
-                         # output = tempfile(fileext = ".nii.gz"),
-                         niters = "200x200x200",
-                         dimension = 3,
-                         omat = tempfile(fileext = ".mat"),
-                         # initial_affine = "identity",
-                         dof = 12,
-                         metric = "NMI",
-                         opts = "",
-                         verbose = TRUE
+greedy_affine = function(
+  fixed,
+  moving,
+  # output = tempfile(fileext = ".nii.gz"),
+  niters = "200x200x200",
+  dimension = 3,
+  omat = tempfile(fileext = ".mat"),
+  # initial_affine = "identity",
+  dof = 12,
+  metric = "NMI",
+  opts = "",
+  verbose = TRUE
 ) {
   # if (initial_affine == "identity") {
   #   ia = "-ia-identity"
@@ -76,10 +77,10 @@ greedy_affine = function(fixed,
     fixed = fixed,
     moving = moving,
     omat = xomat,
-           result = res,
-           metric = xmetric,
-           niters = xniters,
-           dimension = xdimension,
-           additional_options = xopts)
+    result = res,
+    metric = xmetric,
+    niters = xniters,
+    dimension = xdimension,
+    additional_options = xopts)
   return(L)
 }

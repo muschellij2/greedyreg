@@ -1,7 +1,7 @@
 Package: greedyreg
 Type: Package
-Title: Wraps Greedy Registration
-Version: 0.3
+Title: Greedy Image Registration
+Version: 0.4
 Author: John Muschelli
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Description: Wraps and installs the greedy registration from Paul Yushkevich at
@@ -17,4 +17,4 @@ Remotes:
 NeedsCompilation: yes    
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.0.1.9000
