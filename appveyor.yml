@@ -54,6 +54,8 @@ build_script:
   - set PATH=%PATH%;C:\Windows\System32\Wbem
   - set PATH=%PATH%;C:\Windows\System32\WindowsPowerShell\v1.0\
   - set PATH=%PATH%;C:\Program Files\7-Zip
+  # remove Remotes
+  - Rscript -e "x= read.dcf('DESCRIPTION', all = TRUE); x$Remotes = NULL; write.dcf(x, file = 'DESCRIPTION')"  
   - travis-tool.sh install_deps
 
 test_script:
