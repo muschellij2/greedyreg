@@ -32,6 +32,8 @@ test_script:
   # need to move to higher dir because CMake path req
   - mkdir C:\run
   - cp -avr * C:\run
+  - cp .Rbuildignore C:\run
+  - cp -vr .git/ C:\run
   # need the tool a level above
   - cp ../travis-tool.sh C:\
   - cd C:\run
@@ -63,7 +65,9 @@ test_script:
   - travis-tool.sh run_tests
   - ls
   # - cp ../*.zip ./
-  - cp -r C:/run/* %APPVEYOR_BUILD_FOLDER%
+  - cp -vr C:/run/* %APPVEYOR_BUILD_FOLDER%
+  - cp -vr C:/run/.git %APPVEYOR_BUILD_FOLDER%/.git
+  - cp -v C:/run/.Rbuildignore %APPVEYOR_BUILD_FOLDER%
   - cd %APPVEYOR_BUILD_FOLDER%
   - ls
 
