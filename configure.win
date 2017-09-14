@@ -1,0 +1,44 @@
+#!/bin/bash
+CXX_STD=CXX11
+ITKDIR=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR:::itkDir(); cat(a)'`
+
+# get a version of cmake
+CMAKE_BUILD_TYPE=Release
+
+# get / set up ANTs code
+gh=https://github.com/pyushkevich/greedy
+git clone $gh greedydir
+# needed for warning
+rm -rf greedydir/.git
+
+mkdir -p src
+cd ./src
+echo "execs = c('greedy', 'lddmm', 'libgreedyapi.a', 'test_accum')" > install.libs.R
+echo "if ( any(file.exists(execs)) ) { " >> install.libs.R
+echo "dest <- file.path(R_PACKAGE_DIR,  paste0('bin', R_ARCH))" >> install.libs.R
+echo "dir.create(dest, recursive = TRUE, showWarnings = FALSE)" >> install.libs.R
+echo "file.copy(execs, dest, overwrite = TRUE)" >> install.libs.R
+echo "}" >> install.libs.R
+
+echo "CXX_STD = CXX11" > Makevars.win
+
+echo ".PHONY: all libs" >> Makevars.win
+
+echo "all: \$(SHLIB)" >> Makevars.win
+
+echo "\$(SHLIB): libs" >> Makevars.win
+
+MAKER=mingw32-make
+echo "libs: ; cd \${PWD} && ${MAKER} -j 2 &&  cd \${PWD} && ${MAKER} all install" >> Makevars.win
+
+cmake \
+    -G "MinGW Makefiles" \
+    -DCMAKE_SH:BOOL=OFF \
+    -DITK_DIR:PATH=${ITKDIR} \
+    -DCMAKE_INSTALL_PREFIX:PATH="${R_PACKAGE_DIR}/libs/"  \
+    -DCMAKE_BUILD_TYPE:STRING="${CMAKE_BUILD_TYPE}" ../greedydir
+cd ../
+
+# if [ -n "${APPVEYOR}" ]; then
+# 	mv C:/Rtools/bin/_sh.exe C:/Rtools/bin/sh.exe
+# fi
