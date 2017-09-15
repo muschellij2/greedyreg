@@ -11,7 +11,7 @@ environment:
   global:
     USE_RTOOLS: true
     R_CHECK_INSTALL_ARGS: "--install-args=--build --no-multiarch "
-    WARNINGS_ARE_ERORRS: 1
+    WARNINGS_ARE_ERRORS: 1
 
 install:
   - ps: Bootstrap
@@ -73,7 +73,7 @@ test_script:
 
 
 on_failure:
-  - cat *.Rcheck/00_pkg_src/00install.out
+  - cat *.Rcheck/00install.out
   - 7z a failure.zip *.Rcheck\*
   - appveyor PushArtifact failure.zip
 
