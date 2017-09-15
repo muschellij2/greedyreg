@@ -39,7 +39,7 @@ MAKER=mingw32-make
 # MAKER=make
 # echo "libs: ; cd \${PWD} && ${MAKER} -j 2 &&  cd \${PWD} && ${MAKER} all install" >> Makevars.win
 echo "libs: ; ${MAKER} -j 2" >> Makevars.win
-compflags=""
+# compflags=""
 cmake \
     -G "MinGW Makefiles" \
     -DCMAKE_SH:BOOL=OFF \
