@@ -1,9 +1,10 @@
 #!/bin/bash
 CXX_STD=CXX11
-ITKDIR=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR:::itkDir(); cat(a)'`
-ITKRLIB=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR::itkLibs(); cat(a)'`
-compflags=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR:::itkCompileFlags(); cat(a)'`
-ITKRCMAKE=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR::itkIncludes(); cat(a)'`
+ITKDIR=`${R_HOME}/bin/Rscript.exe -e 'a<-system.file("libs", package = "ITKR"); cat(a)'`
+# ITKDIR=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR:::itkDir(); cat(a)'`
+# ITKRLIB=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR::itkLibs(); cat(a)'`
+# compflags=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR:::itkCompileFlags(); cat(a)'`
+# ITKRCMAKE=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR::itkIncludes(); cat(a)'`
 
 # get a version of cmake
 CMAKE_BUILD_TYPE=Release
@@ -23,16 +24,16 @@ echo "}" >> install.libs.R
 
 echo "CXX_STD = CXX11" > Makevars.win
 
-echo "ITK=\"${ITKRCMAKE}\"" >> Makevars.win
-echo "PKG_CPPFLAGS = ${PKG_CPPFLAGS} -Wa,-mbig-obj -I\${ITK}" >> Makevars.win
+# echo "ITK=\"${ITKRCMAKE}\"" >> Makevars.win
+# echo "PKG_CPPFLAGS = ${PKG_CPPFLAGS} -Wa,-mbig-obj -I\${ITK}" >> Makevars.win
 
-# echo "PKG_CPPFLAGS = ${PKG_CPPFLAGS} -Wa,-mbig-obj" >> Makevars.win
+echo "PKG_CPPFLAGS = ${PKG_CPPFLAGS} -Wa,-mbig-obj" >> Makevars.win
 
 echo ".PHONY: all libs" >> Makevars.win
 
-echo "libitk=\`find \"${ITKRLIB}\" -name \"lib*.a\"\`" >> Makevars.win
+# echo "libitk=\`find \"${ITKRLIB}\" -name \"lib*.a\"\`" >> Makevars.win
 
-echo "PKG_LIBS=${PKG_LIBS} \${libitk}" >> Makevars.win
+# echo "PKG_LIBS=${PKG_LIBS} \${libitk}" >> Makevars.win
 
 echo "all: \$(SHLIB)" >> Makevars.win
 
