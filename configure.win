@@ -1,6 +1,7 @@
 #!/bin/bash
 CXX_STD=CXX11
 ITKDIR=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR:::itkDir(); cat(a)'`
+ITKRLIB=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR::itkLibs(); cat(a)'`
 
 # get a version of cmake
 CMAKE_BUILD_TYPE=Release
@@ -13,7 +14,7 @@ rm -rf greedydir/.git
 
 mkdir -p src
 cd ./src
-echo "execs = c('greedy', 'lddmm', 'libgreedyapi.a', 'test_accum')" > install.libs.R
+echo "execs = c('greedy.exe', 'lddmm.exe', 'libgreedyapi.a', 'test_accum.exe')" > install.libs.R
 echo "if ( any(file.exists(execs)) ) { " >> install.libs.R
 echo "dest <- file.path(R_PACKAGE_DIR,  paste0('bin', R_ARCH))" >> install.libs.R
 echo "dir.create(dest, recursive = TRUE, showWarnings = FALSE)" >> install.libs.R
@@ -24,6 +25,10 @@ echo "CXX_STD = CXX11" > Makevars.win
 
 echo "PKG_CPPFLAGS = ${PKG_CPPFLAGS} -Wa,-mbig-obj" >> Makevars.win
 echo ".PHONY: all libs" >> Makevars.win
+
+echo "libitk=\`find \"${ITKRLIB}\" -name \"lib*.a\"\`" >> Makevars.win
+
+echo "PKG_LIBS=${PKG_LIBS} \${libitk}" >> Makevars.win
 
 echo "all: \$(SHLIB)" >> Makevars.win
 
@@ -37,8 +42,8 @@ echo "libs: ; ${MAKER} -j 2" >> Makevars.win
 cmake \
     -G "MinGW Makefiles" \
     -DCMAKE_SH:BOOL=OFF \
-    -DCMAKE_CXX_FLAGS=-Wa,-mbig-obj \
-    -DITK_DIR:PATH=${ITKDIR} \
+    -DCMAKE_CXX_FLAGS="-Wa,-mbig-obj" \
+    -DITK_DIR:PATH="${ITKDIR}" \
     -DCMAKE_INSTALL_PREFIX:PATH="${R_PACKAGE_DIR}/libs/"  \
     -DCMAKE_BUILD_TYPE:STRING="${CMAKE_BUILD_TYPE}" ../greedydir
 cd ../
