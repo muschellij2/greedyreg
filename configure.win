@@ -4,7 +4,7 @@ ITKDIR=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR:::itkDir(); cat(a)'`
 ITKRLIB=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR::itkLibs(); cat(a)'`
 compflags=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR:::itkCompileFlags(); cat(a)'`
 ITKRCMAKE=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR::itkIncludes(); cat(a)'`
-ITK_DIR=`${R_HOME}/bin/Rscript.exe -e 'a<-system.file("libs", package = "ITKR"); cat(a)'`
+ITK_DIR=`${R_HOME}/bin/Rscript.exe -e 'a<-system.file(\'libs\', package = \'ITKR\'); cat(a)'`
 
 # get a version of cmake
 CMAKE_BUILD_TYPE=Release
