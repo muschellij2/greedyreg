@@ -8,9 +8,6 @@ CMAKE_BUILD_TYPE=Release
 # get / set up ANTs code
 gh=https://github.com/pyushkevich/greedy
 git clone $gh greedydir
-# needed for warning
-rm -rf greedydir/.git
-
 
 mkdir -p src
 cd ./src
@@ -38,3 +35,6 @@ cmake -DITK_DIR:PATH=${ITKDIR} \
     -DCMAKE_INSTALL_PREFIX:PATH=${R_PACKAGE_DIR}/libs/  \
     -DCMAKE_BUILD_TYPE:STRING="${CMAKE_BUILD_TYPE}" ../greedydir
 cd ../
+
+# needed for warning
+rm -rf greedydir/.git
