@@ -73,7 +73,7 @@ test_script:
 
 
 on_failure:
-  - cat *.Rcheck/00install.out
+  - cat *.Rcheck/00_pkg_src/00install.out
   - 7z a failure.zip *.Rcheck\*
   - appveyor PushArtifact failure.zip
 
