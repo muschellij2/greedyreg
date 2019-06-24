@@ -33,6 +33,7 @@ echo "libs: ; \$(MAKE) -j 2 &&  \$(MAKE) all install" >> Makevars
 # cd build
 cmake -DITK_DIR:PATH=${ITKDIR} \
     -DCMAKE_INSTALL_PREFIX:PATH=${R_PACKAGE_DIR}/libs/  \
+    -DModule_ITKDeprecated:BOOL=ON \
     -DCMAKE_BUILD_TYPE:STRING="${CMAKE_BUILD_TYPE}" ../greedydir
 cd ../
 

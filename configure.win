@@ -4,7 +4,7 @@ ITKDIR=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR:::itkDir(); cat(a)'`
 ITKRLIB=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR::itkLibs(); cat(a)'`
 compflags=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR:::itkCompileFlags(); cat(a)'`
 ITKRCMAKE=`${R_HOME}/bin/Rscript.exe -e 'a<-ITKR::itkIncludes(); cat(a)'`
-ITK_DIR=`${R_HOME}/bin/Rscript.exe -e 'a<-system.file(\'libs\', package = \'ITKR\'); cat(a)'`
+ITK_DIR=`${R_HOME}/bin/Rscript.exe -e 'a<-system.file(\'libs\', package = \'ITKR\'); cat(a)`
 
 # get a version of cmake
 CMAKE_BUILD_TYPE=Release
@@ -50,6 +50,7 @@ cmake \
     -DCMAKE_CXX_FLAGS="${CMAKE_CXX_FLAGS} ${compflags} -DNDEBUG -Wa,-mbig-obj" \
     -DCMAKE_C_FLAGS="${CMAKE_C_FLAGS} ${compflags} -DNDEBUG  "\
     -DITK_DIR:PATH="${ITKDIR}" \
+    -DModule_ITKDeprecated:BOOL=ON \
     -DCMAKE_INSTALL_PREFIX:PATH="${R_PACKAGE_DIR}/libs/"  \
     -DCMAKE_BUILD_TYPE:STRING="${CMAKE_BUILD_TYPE}" ../greedydir
 cd ../
